@@ -6,7 +6,12 @@
     - post
 
 ## membuat autentikasi dan otorisasi
-    - jetstream
+    - jetstream (install)
+    - spatie
+    - RoleTableSeeder
+    - UserTableSeeder
+    - Middleware (otorisasi)
+    - DashboardController
 
 ## Integrasi Template 
     - Template Stisla (backend)

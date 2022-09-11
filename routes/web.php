@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\{
+    DashboardControler,
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group([
+    'middleware' => ['auth', 'role:admin|user']
+], function () {
+    //Dashboard Admin dan User
+    Route::get('/dashboard', [DashboardControler::class, 'index'])->name('dashboard');
+
+    Route::group([
+        'middleware' => 'role:admin'
+    ], function() {
+        //
+    });
+
+    Route::group([
+        'middleware' => 'role:user'
+    ], function() {
+        //
+    });
+});
+
